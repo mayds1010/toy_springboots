@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,8 +19,8 @@
     <title>SUN - ADMIN</title>
   </head>
   <body>
-
-    <%@ include file="header.jsp" %>
+   <%@ include file="header.jsp" %>
+ 
 
     <div class="container border border-dark rounded text-center w-100 mt-4">
       <main class="p-5">
@@ -42,29 +42,20 @@
             </tr>
           </thead>
           <tbody>
-            <%
-            ArrayList<HashMap> userList = (ArrayList<HashMap>)request.getAttribute("userList");
-            for(int i = 0; i < userList.size(); i++){ 
-              String users_uid = (String)userList.get(i).get("USERS_UID");
-              String id = (String)userList.get(i).get("ID");
-              String pwd = (String)userList.get(i).get("PWD");
-              String name = (String)userList.get(i).get("NAME");
-              String phone = (String)userList.get(i).get("PHONE");
-              String email = (String)userList.get(i).get("EMAIL");
-              String surveycheck = (String)userList.get(i).get("SURVEYCHECK");
-              String auth = (String)userList.get(i).get("AUTH");
-              %>
-            <tr>
-              <td><%= users_uid %></td>
-              <td><%= id %></td>
-              <td><%= pwd %></td>
-              <td><%= name %></td>
-              <td><%= phone %></td>
-              <td><%= email %></td>
-              <td><%= surveycheck %></td>
-              <td><%= auth %></td>
+           <c:forEach items="${resultMap}"  var="resultData" varStatus = "loop">
+          
+               <tr>
+              <td> ${resultData.USERS_UID} </td>
+              <td> ${resultData.ID} </td>
+              <td> ${resultData.PWD} </td>
+              <td> ${resultData.NAME} </td>
+              <td> ${resultData.PHONE} </td>
+              <td> ${resultData.EMAIL} </td>
+              <td> ${resultData.SURVEYCHECK} </td>
+              <td> ${resultData.AUTH} </td>
+            
             </tr>
-          <% } %>
+             </c:forEach>
           </tbody>
         </table>
         <br /><br /><br />

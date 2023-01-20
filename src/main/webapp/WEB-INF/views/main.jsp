@@ -1,26 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>Main ! JSP</div>
-    
-     <div> <a href="/survey/">/survey/admin_userlist.jsp</a> </div>
-</body>
-</html>
-
-<%-- <% 
-Member loginUser = (Member)session.getAttribute("loginUser");
-String auth = (String)session.getAttribute("auth");
-%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,14 +26,14 @@ String auth = (String)session.getAttribute("auth");
           <div class="col-lg-5 col-md-7 mx-auto">
             <form action="/login" method="post">
             
-              <div class="text-center p-3"><%= loginUser.getName() %>님의 방문을 환영합니다.</div>
+              <%-- <div class="text-center p-3"><%= loginUser.getName() %>님의 방문을 환영합니다.</div> --%>
               <div class="text-center pb-3">원하시는 메뉴를 선택해주세요.</div>
-              <% if(auth.equals("YES")) { %>
+              <%-- <% if(auth.equals("YES")) { %> --%>
                 <div class="text-center my-3">
                  <button class="btn btn-light">
-                <a class="text-dark text-decoration-none" href="/adminUserListServlet">회원 조회</a> </button>
+                <a class="text-dark text-decoration-none" href="/userlist">회원 조회</a> </button>
                 </div>
-                <% } %>
+                <%-- <% } %> --%>
         <div class="text-center">
          <button class="btn btn-warning">
         <a class="text-dark text-decoration-none" href="/logout">로그아웃</a> </button>
@@ -65,9 +44,6 @@ String auth = (String)session.getAttribute("auth");
       </main>
     </div>
   
-
-
-
       <%@ include file="footer.jsp" %>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -75,4 +51,4 @@ String auth = (String)session.getAttribute("auth");
       crossorigin="anonymous"
     ></script>
   </body>
-</html> --%>
+</html>

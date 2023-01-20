@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<header style='
+    <header style='
         background-color: RGB(222, 220, 238);
         color: RGB(106, 96, 169);
         font-weight: 800;

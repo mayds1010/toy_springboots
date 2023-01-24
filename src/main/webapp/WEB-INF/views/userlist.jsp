@@ -39,6 +39,8 @@
               <th>이메일</th>
               <th>설문 여부</th>
               <th>관리자 여부</th>
+              <th>수정</th>
+              <th>삭제</th>
             </tr>
           </thead>
           <tbody>
@@ -53,6 +55,11 @@
               <td> ${resultData.EMAIL} </td>
               <td> ${resultData.SURVEYCHECK} </td>
               <td> ${resultData.AUTH} </td>
+              <td> <form action ="/edit/${resultData.USERS_UID}" method="post"</td>
+              <button class="btn btn-outline-info">Edit</button>
+              <td> <form action ="/delete/${resultData.USERS_UID}" method="post"</td>
+              <button class="btn btn-outline-info">Delete</button>
+              
             
             </tr>
              </c:forEach>
@@ -61,7 +68,7 @@
         <br /><br /><br />
         
         <table>
-          <a class="btn btn-lg btn-warning border-dark" href="/index"
+          <a class="btn btn-lg btn-warning border-dark" href="/main"
             >메인</a
           >
         </table>

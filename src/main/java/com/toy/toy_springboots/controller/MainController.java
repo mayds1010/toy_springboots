@@ -21,6 +21,7 @@ public class MainController {
 
     @RequestMapping(value = { "/main", "/", "" }, method = RequestMethod.GET)
     public ModelAndView main(ModelAndView modelAndView) {
+
         modelAndView.setViewName("main");
         return modelAndView;
     }
@@ -29,49 +30,50 @@ public class MainController {
     public ModelAndView userList(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         Object resultMap = userListService.getList(params);
         modelAndView.addObject("resultMap", resultMap);
+
         modelAndView.setViewName("userlist");
         return modelAndView;
     }
 
-    // @RequestMapping(value = "/edit/{userId}", method = RequestMethod.GET)
-    // public ModelAndView edit(@RequestParam Map<String, Object> params,
-    // @PathVariable String userId,
-    // ModelAndView modelAndView) {
-    // params.put("USER_ID", userId);
-    // Object resultMap = userListService.getOne(params);
-    // modelAndView.addObject("resultMap", resultMap);
-    // modelAndView.setViewName("signup");
+    @RequestMapping(value = "/edit/{userId}", method = RequestMethod.POST)
+    public ModelAndView edit(@RequestParam Map<String, Object> params,
+            @PathVariable String userId, ModelAndView modelAndView) {
+        params.put("USERS_UID", userId);
+        Object resultMap = userListService.getOne(params);
+        modelAndView.addObject("resultMap", resultMap);
 
-    // return modelAndView;
-    // }
+        modelAndView.setViewName("useredit");
+        return modelAndView;
+    }
 
-    // @RequestMapping(value = "/update", method = RequestMethod.POST)
-    // public ModelAndView update(@RequestParam Map<String, Object> params,
-    // ModelAndView modelAndView) {
-    // Object resultMap = userListService.updateAndGetList(params);
-    // modelAndView.addObject("resultMap", resultMap);
-    // modelAndView.setViewName("userlist");
-    // return modelAndView;
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public ModelAndView update(@RequestParam Map<String, Object> params,
+            ModelAndView modelAndView) {
+        Object resultMap = userListService.updateAndGetList(params);
+        modelAndView.addObject("resultMap", resultMap);
 
-    // }
+        modelAndView.setViewName("userlist");
+        return modelAndView;
+    }
 
-    // @RequestMapping(value = "/delete/{userId}", method = RequestMethod.POST)
-    // public ModelAndView delete(@RequestParam Map<String, Object> params,
-    // @PathVariable String userId,
-    // ModelAndView modelAndView) {
-    // params.put("USER_ID", userId);
-    // Object resultMap = userListService.deleteAndGetList(params);
-    // modelAndView.addObject("resultMap", resultMap);
-    // modelAndView.setViewName("userlist");
-    // return modelAndView;
+    @RequestMapping(value = { "/insert" }, method = RequestMethod.POST)
+    public ModelAndView insert(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        Object resultMap = userListService.insertAndGetList(params);
+        modelAndView.addObject("resultMap", resultMap);
 
-    // }
+        modelAndView.setViewName("userlist");
+        return modelAndView;
+    }
 
-    // @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    // public ModelAndView signUp(ModelAndView modelAndView) {
+    @RequestMapping(value = "/delete/{userId}", method = RequestMethod.POST)
+    public ModelAndView delete(@RequestParam Map<String, Object> params,
+            @PathVariable String userId, ModelAndView modelAndView) {
+        params.put("USERS_UID", userId);
+        Object resultMap = userListService.deleteAndGetList(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("userlist");
+        return modelAndView;
 
-    // modelAndView.setViewName("signup");
-    // return modelAndView;
-    // }
+    }
 
 }

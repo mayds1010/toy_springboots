@@ -10,7 +10,7 @@
    <c:set var="form_action" value="insert" />
    </c:if>
 
-<form action="/main/${form_action}" method="post">
+<form action="/survey/${form_action}" method="post">
 
 
 			
@@ -89,9 +89,14 @@
 	</div>
 </div>
 <%-- Update --%>
-<div class="text-center">
+<div class="row justify-content-between">
+	<div class="col">
+			<button class="btn btn-primary">
+				${form_action} 
+			</button>
+<%-- <div class="text-center">
               <button class="btn btn-lg btn-outline-dark fw-bold w-25 m-4" type="submit">${form_action}</button>
-            </div>
+            </div> --%>
 <%-- <div class="row justify-content-between">
 	<div class="col">
 			<button class="btn btn-primary">

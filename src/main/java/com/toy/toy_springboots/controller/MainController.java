@@ -31,7 +31,7 @@ public class MainController {
         Object resultMap = userListService.getList(params);
         modelAndView.addObject("resultMap", resultMap);
 
-        modelAndView.setViewName("userlist");
+        modelAndView.setViewName("user/userlist");
         return modelAndView;
     }
 
@@ -42,7 +42,7 @@ public class MainController {
         Object resultMap = userListService.getOne(params);
         modelAndView.addObject("resultMap", resultMap);
 
-        modelAndView.setViewName("useredit");
+        modelAndView.setViewName("user/useredit");
         return modelAndView;
     }
 
@@ -52,7 +52,7 @@ public class MainController {
         Object resultMap = userListService.updateAndGetList(params);
         modelAndView.addObject("resultMap", resultMap);
 
-        modelAndView.setViewName("userlist");
+        modelAndView.setViewName("user/userlist");
         return modelAndView;
     }
 
@@ -61,7 +61,7 @@ public class MainController {
         Object resultMap = userListService.insertAndGetList(params);
         modelAndView.addObject("resultMap", resultMap);
 
-        modelAndView.setViewName("userlist");
+        modelAndView.setViewName("user/userlist");
         return modelAndView;
     }
 
@@ -71,7 +71,7 @@ public class MainController {
         params.put("USERS_UID", userId);
         Object resultMap = userListService.deleteAndGetList(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("userlist");
+        modelAndView.setViewName("user/userlist");
         return modelAndView;
 
     }

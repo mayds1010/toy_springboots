@@ -47,6 +47,7 @@
            <c:forEach items="${resultMap}"  var="resultData" varStatus = "loop">
           
                <tr>
+
               <td> ${resultData.USERS_UID} </td>
               <td> ${resultData.ID} </td>
               <td> ${resultData.PWD} </td>
@@ -55,11 +56,18 @@
               <td> ${resultData.EMAIL} </td>
               <td> ${resultData.SURVEYCHECK} </td>
               <td> ${resultData.AUTH} </td>
-              <td> <form action ="/edit/${resultData.USERS_UID}" method="post"</td>
-              <button class="btn btn-outline-info">Edit</button>
-              <td> <form action ="/delete/${resultData.USERS_UID}" method="post"</td>
-              <button class="btn btn-outline-info">Delete</button>
               
+              <td>
+                        <form action="/edit/${resultData.USERS_UID}" method="post">
+                            <button class="btn btn-outline-info">Edit</button>
+                        </form>        
+				      </td>	
+              <td>
+                        <form action="/delete/${resultData.USERS_UID}" method="post">
+                            <button class="btn btn-outline-info">Delete</button>
+                        </form>        
+				      </td>	
+            
             
             </tr>
              </c:forEach>

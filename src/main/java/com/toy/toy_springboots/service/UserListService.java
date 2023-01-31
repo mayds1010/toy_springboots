@@ -1,9 +1,15 @@
 package com.toy.toy_springboots.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.toy.toy_springboots.dao.UserListDao;
+import com.toy.toy_springboots.utils.Paginations;
 
 @Service
 public class UserListService {
@@ -12,7 +18,7 @@ public class UserListService {
     UserListDao userListDao;
 
     public Object getList(Object dataMap) {
-        String sqlMapId = "UserList.selectFromUsers_List";
+        String sqlMapId = "UserList.selectFromUsers";
         Object result = userListDao.getList(sqlMapId, dataMap);
         return result;
     }
@@ -35,6 +41,13 @@ public class UserListService {
         result = this.getList(dataMap);
         return result;
 
+    }
+
+    public String getGeneratorID() {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyyhh:mm:ss");
+        String strDate = formatter.format(date);
+        return strDate;
     }
 
     public Object insert(Object dataMap) {
@@ -62,4 +75,21 @@ public class UserListService {
 
     }
 
+    public Object getTotal(Object dataMap) {
+        String sqlMapId = "UserList.selectTotal";
+        Object result = userListDao.getOne(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object getListWithPagination(Object dataMap) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotal(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        Paginations paginations = new Paginations(totalCount, currentPage);
+        result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin());
+        ((Map<String, Object>) dataMap).put("pageScale", paginations.getPageScale());
+        result.put("resultList", this.getList(dataMap));
+        return result;
+    }
 }

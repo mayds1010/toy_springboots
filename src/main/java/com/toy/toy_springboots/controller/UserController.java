@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.toy.toy_springboots.service.UserListService;
 
-@Controller
+// @Controller
 @RequestMapping(value = "/survey")
 public class UserController {
 

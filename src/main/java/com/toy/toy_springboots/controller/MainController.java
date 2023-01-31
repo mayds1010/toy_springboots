@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.toy.toy_springboots.dao.UserListDao;
 import com.toy.toy_springboots.service.UserListService;
 
-@Controller
+// @Controller
 public class MainController {
 
     @Autowired

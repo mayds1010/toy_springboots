@@ -30,7 +30,7 @@
     <!-- call UserList.insertWithUID -->
     <insert id="insertWithUID" parameterType="Map">
     INSERT INTO USERS_LIST (USERS_UID, PHONE, NAME, EMAIL, ID, PWD, SURVEYCHECK, AUTH)
-    VALUES (#{USERS_UID}, #{PHONE}, #{NAME}, #{EMAIL}, #{ID}, #{PWD}, #{YES}, #{NO});
+    VALUES (#{USERS_UID}, #{PHONE}, #{NAME}, #{EMAIL}, #{ID}, #{PWD}, #{SURVEYCHECK}, #{AUTH});
     </insert>
 
     <!-- call UserList.deleteByUID -->

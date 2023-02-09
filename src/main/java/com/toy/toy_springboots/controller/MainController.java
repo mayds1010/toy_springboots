@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.toy.toy_springboots.dao.UserListDao;
 import com.toy.toy_springboots.service.UserListService;
 
-// @Controller
+@Controller
 public class MainController {
 
     @Autowired
@@ -46,25 +46,6 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ModelAndView update(@RequestParam Map<String, Object> params,
-            ModelAndView modelAndView) {
-        Object resultMap = userListService.updateAndGetList(params);
-        modelAndView.addObject("resultMap", resultMap);
-
-        modelAndView.setViewName("user/userlist");
-        return modelAndView;
-    }
-
-    @RequestMapping(value = { "/insert" }, method = RequestMethod.POST)
-    public ModelAndView insert(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        Object resultMap = userListService.insertAndGetList(params);
-        modelAndView.addObject("resultMap", resultMap);
-
-        modelAndView.setViewName("user/userlist");
-        return modelAndView;
-    }
-
     @RequestMapping(value = "/delete/{userId}", method = RequestMethod.POST)
     public ModelAndView delete(@RequestParam Map<String, Object> params,
             @PathVariable String userId, ModelAndView modelAndView) {
@@ -76,4 +57,9 @@ public class MainController {
 
     }
 
+    public void listPagination(@RequestParam Map<String, Object>params,
+    @PathVariable String currentPage, ModelAndView modelAndView){
+        params.put("currentPage", Integer.parseInt(currentPage));
+        params.put("pageScale",10);
+    }
 }

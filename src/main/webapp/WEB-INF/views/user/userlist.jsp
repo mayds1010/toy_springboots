@@ -25,7 +25,7 @@
     <div class="container border border-dark rounded text-center w-100 mt-4">
       <main class="p-5">
         <div class="text-center pb-5">전체 회원을 조회합니다.</div>
-
+  
         <table
           class="table table-primary table-bordered border-dark text-center"
         >
@@ -76,9 +76,17 @@
         <br /><br /><br />
         
         <table>
+          <%-- form 추가 --%>
+          <span>
+    <form action="/survey/form" method="get">
+        <button class="btn btn-lg btn-info border-dark"
+          >글작성</button>
+      </form>
+      </span>
+      <span>
           <a class="btn btn-lg btn-warning border-dark" href="/main"
             >메인</a
-          >
+          ></span>
         </table>
       </main>
     </div>

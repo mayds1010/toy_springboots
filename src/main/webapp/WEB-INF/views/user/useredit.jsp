@@ -12,7 +12,17 @@
 
 <form action="/survey/${form_action}" method="post">
 
-
+<%-- <div class="form-group form-row">
+	<div class="col">
+		<label>코드 ID</label> <input class="form-control" type="text"
+			name="COMMON_CODE_ID"  value="${resultMap.COMMON_CODE_ID}"
+			 required ${form_action == "update" ? "readonly" : "" }/>
+			<%--placeholder="TEMPORORY_COMMONCODE" required readonly 값이 변경되지 않음  --%>
+		<%-- <div class="invalid-tooltip">
+		</div>
+		
+	</div>
+</div>  --%>
 			
 <%-- 코드명 --%>
 <div class="form-group form-row">
@@ -65,10 +75,26 @@
 	</div>
 </div>
 			
+<div class="form-group form-row">
+	<div class="col">
+		<label>SURVEYCHECK </label> <input class="form-control" type="text"
+			name="SURVEYCHECK" value="${resultMap.SURVEYCHECK}" placeholder="SURVEYCHECK" required ${statusDisabled}/>
+		<div class="invalid-tooltip">
+		</div>
+	</div>
+</div>
 
+<div class="form-group form-row">
+	<div class="col">
+		<label>AUTH </label> <input class="form-control" type="text"
+			name="AUTH" value="${resultMap.AUTH}" placeholder="AUTH" required ${statusDisabled}/>
+		<div class="invalid-tooltip">
+		</div>
+	</div>
+</div>
 
 <%-- 시스템 코드여부 --%>
-<div class="form-group form-row">
+<%-- <div class="form-group form-row">
 	<div class="col">
 		<div class="form-check">
 			<input type="checkbox" class="form-check-input" name="SYSTEM_CODE_YN"
@@ -77,9 +103,9 @@
 				${statusDisabled}> <label class="form-check-label">시스템 코드여부</label>
 		</div>
 	</div>
-</div>
+</div> --%>
 <%-- 사용 여부 --%>
-<div class="form-group form-row">
+<%-- <div class="form-group form-row">
 	<div class="col">
 		<div class="form-check">
 			<input type="checkbox" class="form-check-input" name="USE_YN"
@@ -87,7 +113,7 @@
 				${statusDisabled}> <label class="form-check-label">사용 여부</label>
 		</div>
 	</div>
-</div>
+</div> --%>
 <%-- Update --%>
 <div class="row justify-content-between">
 	<div class="col">

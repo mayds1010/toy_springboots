@@ -15,15 +15,15 @@ public class MainsController {
         if (principal instanceof UserDetails) { // 로그인이 되어 있을땐 UserDetails
             String username = ((UserDetails) principal).getUsername();
             String password = ((UserDetails) principal).getPassword();
-            System.out.println("Username :" + username);
-            System.out.println("Password :" + password);
+            System.out.println(((UserDetails) principal).getUsername());
+            System.out.println(((UserDetails) principal).getPassword());
             System.out.println(((UserDetails) principal).getAuthorities());
             System.out.println(((UserDetails) principal).isAccountNonExpired());
             System.out.println(((UserDetails) principal).isCredentialsNonExpired());
             System.out.println(((UserDetails) principal).isEnabled());
         } else {
             String username = principal.toString(); // 로그인 안되어 있음 toString
-            // String password = principal.toString(); // 로그인 안되어 있음 toString
+
         }
 
         String viewName = "/WEB-INF/views/main.jsp";

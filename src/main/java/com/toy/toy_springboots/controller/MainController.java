@@ -57,9 +57,9 @@ public class MainController {
 
     }
 
-    public void listPagination(@RequestParam Map<String, Object>params,
-    @PathVariable String currentPage, ModelAndView modelAndView){
+    public void listPagination(@RequestParam Map<String, Object> params,
+            @PathVariable String currentPage, ModelAndView modelAndView) {
         params.put("currentPage", Integer.parseInt(currentPage));
-        params.put("pageScale",10);
+        params.put("pageScale", 10);
     }
 }

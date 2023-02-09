@@ -27,7 +27,8 @@ public class MainController {
     }
 
     @RequestMapping(value = "/userlist", method = RequestMethod.GET)
-    public ModelAndView userList(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+    public ModelAndView userList(@RequestParam Map<String, Object> params,
+            ModelAndView modelAndView) {
         Object resultMap = userListService.getList(params);
         modelAndView.addObject("resultMap", resultMap);
 

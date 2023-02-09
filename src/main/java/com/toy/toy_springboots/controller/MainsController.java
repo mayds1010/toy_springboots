@@ -26,7 +26,7 @@ public class MainsController {
 
         }
 
-        String viewName = "/WEB-INF/views/main.jsp";
+        String viewName = "/mains"; // 경로를 이미 설정을 해줘서 두번씩 출력됐던거임
         modelAndView.setViewName(viewName);
         return modelAndView;
     }
